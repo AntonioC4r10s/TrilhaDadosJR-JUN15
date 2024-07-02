@@ -31,7 +31,7 @@ Este projeto foi desenvolvido no Google Colab e foca em três principais abordag
 - Google Colab
 
 ## Instalação
-Basta abrir o arquivo .ipynb e escolher a opção 'Open in Colab', onde será possível modificar, copiar e trabalhar no projeto.
+Basta abrir o arquivo .ipynb e selecionar a opção 'Open in Colab', onde será possível modificar, copiar e trabalhar no projeto.
 
 ## Análises
 
