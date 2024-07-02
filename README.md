@@ -11,7 +11,8 @@ Este projeto de ciência de dados analisa as vendas de cursos online usando um c
 
 - [Introdução](#introdução)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Análises](#tecnologias-utilizadas) 
+- [Análises](#tecnologias-utilizadas)
+- [Conclusões](#conclusões) 
 - [Contato](#contato)
 
 ## Introdução
@@ -55,9 +56,57 @@ df_tempo = df_dados.groupby('Data')['Quantidade de Vendas'].sum().reset_index()
 df_tempo.head()
 plt.figure(figsize=(10, 6))
 sns.lineplot(x='Data', y='Quantidade de Vendas', data=df_tempo, marker='o', palette='Blues')
+
 plt.xlabel('Data')
 plt.ylabel('Quantidade de Vendas')
 plt.title('Quantidade de Vendas ao longo do tempo')
 plt.xticks(rotation=90)
 plt.show()
+# saída:
 ```
+<img src="Quantidade de Vendas ao longo do tempo.png" width="700">
+
+- Visualizar a quantidade de Vendas por Curso
+```python
+plt.figure(figsize=(10, 6))
+sns.barplot(x='Nome do Curso', y='Quantidade de Vendas', data=df_cursos, palette='Set1')
+
+for index, value in enumerate(df_cursos['Quantidade de Vendas']):
+    plt.text(index, value, str(value), ha='center', va='bottom')
+
+plt.xticks(rotation=90)
+plt.xlabel('Curso')
+plt.ylabel('Quantidade de Vendas')
+plt.title('Quantidade de Vendas por Curso')
+plt.show()  
+# saída:
+```
+<img src="Quantidade de Vendas por Curso.png" width="700">
+
+- Gráfico de dispersão para relação entre variáveis Vendas e Preço.
+
+```python
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x='Preço Unitário', y='Quantidade de Vendas', 
+                hue='Nome do Curso', data=df_dados, palette='Set2', s=70) 
+plt.xlabel('Preço')
+plt.ylabel('Quantidade de Vendas')
+plt.title('Quantidade de Vendas x Preço')
+plt.show()
+# saída:
+```
+<img src="Quantidade de Vendas x Preço.png" width="700">
+
+## Conclusões
+
+Temos a conclusão a partir do case analisado que o curso com o maior número de vendas é o 'Introdução à Programação em Python'. Além disso, é possível observar picos de vendas em dois períodos distintos: um no início do mês e outro por volta do dia 20. Esses períodos sugerem que há uma demanda sazonal por cursos específicos nessas datas.
+
+Analisando o gráfico de dispersão, observamos que cursos mais baratos tendem a ter vendas mais elevadas, refletindo uma sensibilidade dos consumidores ao preço. Por outro lado, cursos mais caros apresentam um volume de vendas menor, indicando uma preferência por preços mais acessíveis entre os consumidores.
+
+Esta análise permite inferir estratégias de marketing e precificação que podem ser exploradas para otimizar as vendas de cursos online, ajustando os preços e lançamentos de novos cursos de acordo com os padrões observados.
+
+## Contato
+
+- [Linkedin](https://www.linkedin.com/in/antoniojuniortec/)
+- [Github](https://github.com/AntonioC4r10s)
+
